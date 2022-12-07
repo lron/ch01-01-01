@@ -1,6 +1,8 @@
 name: second
 
-on: [push]
+on: 
+  push:
+  workflow_dispatch:
 
 jobs:
   job1:
@@ -25,7 +27,7 @@ jobs:
     name: Third job
     runs-on: macos-latest
     steps:
-     - name: Step one
+    - name: Step one
       uses: actions/checkout@v2
     - name: Step two
       run: date +"%D %T"
