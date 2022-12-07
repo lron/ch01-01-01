@@ -18,26 +18,19 @@ jobs:
     name: Second job
     runs-on: windows-latest
     steps:
-    - name: Step one
-      uses: actions/checkout@v2
-    - name: Step two
-      run: "Write-Output $(Get-Date)"
+    - run: "Write-Output $(Get-Date)"
   
   job3:
     name: Third job
     runs-on: macos-latest
     steps:
-    - name: Step one
-      uses: actions/checkout@v2
-    - name: Step two
-      run: date +"%D %T"
+    - run: |
+        date +"%D %T"
+        exit 1
 
   job4: 
     name: Four job
     runs-on: macos-latest
     needs: [job1, job2, job3]
     steps:
-    - name: Step one
-      uses: actions/checkout@v2
-    - name: Step two
-      run: date +"%D %T"
+    - run: date +"%D %T"
